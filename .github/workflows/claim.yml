@@ -14,7 +14,6 @@ on: # When to run this workflow
 jobs:
     claim:
         runs-on: ubuntu-latest
-
         timeout-minutes: 5 # Automatically stop after 5 minutes
 
         steps:
@@ -35,49 +34,4 @@ jobs:
             - name: Get Epic Freebies
               run: yarn start ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} 0 ${{ secrets.SECRETKEY }}
               
-    claim2:
-        runs-on: ubuntu-latest
-
-        timeout-minutes: 5 # Automatically stop after 5 minutes
-
-        steps:
-            - name: Setup repo
-              uses: actions/checkout@v2
-              with:
-                  repository: "Revadike/epicgames-freebies-claimer"
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v1
-
-            - name: Install dependencies
-              run: yarn
-
-            - name: Hotfix for \#4 # https://github.com/xuac/claim-epic-freebies/issues/4
-              run: mkdir .egstore
-
-            - name: Get Epic Freebies
-              run: yarn start ${{ secrets.USERNAME2 }} ${{ secrets.PASSWORD2 }} 0 ${{ secrets.SECRETKEY2 }}
-
-    claim3:
-        runs-on: ubuntu-latest
-
-        timeout-minutes: 5 # Automatically stop after 5 minutes
-
-        steps:
-            - name: Setup repo
-              uses: actions/checkout@v2
-              with:
-                  repository: "Revadike/epicgames-freebies-claimer"
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v1
-
-            - name: Install dependencies
-              run: yarn
-
-            - name: Hotfix for \#4 # https://github.com/xuac/claim-epic-freebies/issues/4
-              run: mkdir .egstore
-
-            - name: Get Epic Freebies
-              run: yarn start ${{ secrets.USERNAME3 }} ${{ secrets.PASSWORD3 }} 0 ${{ secrets.SECRETKEY3 }}
 
